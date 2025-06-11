@@ -25,6 +25,12 @@
 		<tag/>
 		<url/>
 	</scm>
+	<distributionManagement>
+		<repository>
+			<id>github</id>
+			<url>https://maven.pkg.github.com/read424/avro-schemas</url>
+		</repository>
+	</distributionManagement>
 	<properties>
 		<java.version>21</java.version>
 		<avro.version>1.12.0</avro.version>
@@ -57,11 +63,6 @@
 						<goals>
 							<goal>schema</goal>
 						</goals>
-						<configuration>
-							<sourceDirectory>${project.basedir}/src/main/resources/avro</sourceDirectory>
-							<outputDirectory>${project.build.directory}/generated-sources/avro</outputDirectory>
-							<stringType>String</stringType>
-						</configuration>
 					</execution>
 				</executions>
 			</plugin>
@@ -86,6 +87,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
 				<executions>
 					<execution>
 						<id>repackage</id>

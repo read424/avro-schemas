@@ -1,0 +1,83 @@
+name: Publish Maven Packages
+
+on:
+  push:
+    tags: [ 'v*' ]
+
+env:
+  REGISTRY: ghcr.io
+  JAVA_VERSION: '21'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/setup-java@v4
+
+      - name: ☕ Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: 'temurin'
+
+      - name: 📦 Cache Maven dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hasfiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+
+      - name: 🔍 Extract version from tag
+        id: version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: 🔨 Compile Avro schemas
+        run: mvn clean compile -B
+
+      - name: 🧪 Run tests
+        run: mvn test -B
+
+      - name: 📋 Set project version
+        run: mvn versions:set -DnewVersion=${{ steps.version.outputs.VERSION }} -B
+
+      - name: 📦 Build JAR
+        run: mvn package -DskipTests -B
+
+      - name: mvn package -DskipTests -B
+        run: mvn deploy -DskipTests -B
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 📝 Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: target/*.jar
+          tag_name: ${{ github.ref_name }}
+          name: Release ${{ steps.version.outputs.VERSION }}
+          body: |
+            ## Avro Schemas ${{ steps.version.outputs.VERSION }}
+            
+            ### 📦 Artifact Information:
+            - **GroupId**: `com.walrex`
+            - **ArtifactId**: `avro-schemas`
+            - **Version**: `${{ steps.version.outputs.VERSION }}`
+            
+            ### 📥 Usage:
+            ```xml
+            <dependency>
+                <groupId>com.walrex</groupId>
+                <artifactId>avro-schemas</artifactId>
+                <version>${{ steps.version.outputs.VERSION }}</version>
+            </dependency>
+            ```
+            
+            ### 🔗 Package Registry:
+            Available at [GitHub Packages](https://github.com/read424/avro-schemas/pkgs/maven/com.walrex.avro-schemas)
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

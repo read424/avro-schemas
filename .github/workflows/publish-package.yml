@@ -17,7 +17,7 @@ jobs:
 
     steps:
       - name: 📥 Checkout code
-        uses: actions/setup-java@v4
+        uses: actions/checkout@v4
 
       - name: ☕ Set up JDK
         uses: actions/setup-java@v4

@@ -1,0 +1,10 @@
+{
+    "type": "record",
+    "name": "DataTemplateRecoveryEmail",
+    "namespace": "com.walrex.avro.schemas",
+    "fields": [
+        { "name": "user", "type": "string" },
+        { "name": "codigo", "type": "string" },
+        { "name": "link_recovery", "type": "string" }
+    ]
+}

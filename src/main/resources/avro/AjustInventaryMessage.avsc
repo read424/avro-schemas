@@ -1,0 +1,21 @@
+{
+    "type": "record",
+    "name": "AjustInventaryMessage",
+    "namespace": "com.walrex.avro.schemas",
+    "fields":[
+        { "name": "id_motivo", "type": "int" },
+        { "name": "id_almacen", "type": "int" },
+        { "name": "fec_creacion", "type": "string" },
+        { "name": "observacion", "type": "string" },
+        { "name": "ingresos", "type": {
+                "type": "array",
+                "items": "com.walrex.avro.schemas.ItemArticuloMessage"
+            }, "default":[]
+        },
+        { "name": "egresos", "type": {
+                "type": "array",
+                "items": "com.walrex.avro.schemas.ItemArticuloEgresoMessage"
+            }, "default":[]
+        }
+    ]
+}

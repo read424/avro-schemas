@@ -1,0 +1,18 @@
+{
+    "type": "record",
+    "name": "GetCodesArticulosEvents",
+    "namespace": "com.walrex.avro.schemas",
+    "fields": [
+        { "name": "codigos_articulos", "type": {
+                "type": "array",
+                "items": {
+                    "type": "record",
+                    "name": "ListCodigosArticulos",
+                    "fields": [
+                        { "name": "cod_articulo", "type": "string" }
+                    ]
+                }
+            }, "default": []
+        }
+    ]
+}

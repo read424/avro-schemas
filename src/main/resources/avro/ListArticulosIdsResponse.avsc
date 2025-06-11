@@ -1,0 +1,20 @@
+{
+    "type": "record",
+    "name": "ListArticulosIdsResponse",
+    "namespace": "com.walrex.avro.schemas",
+    "fields": [
+        { "name": "list_articulos", "type": {
+                "type": "array",
+                "items": {
+                    "type": "record",
+                    "name": "ListArticuloIdsCodes",
+                    "fields": [
+                        { "name": "id_articulo", "type": "int" },
+                        { "name": "desc_articulo", "type": "string" },
+                        { "name": "codigo_articulo", "type": "string" }
+                    ]
+                }
+            }, "default": []
+        }
+    ]
+}

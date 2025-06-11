@@ -1,0 +1,11 @@
+{
+    "type": "record",
+    "name": "WinPermissionMessage",
+    "namespace": "com.walrex.avro.schemas",
+    "fields": [
+        { "name": "idwin_state", "type": "long", "default": 0 },
+        { "name": "name_state", "type": "string", "default": "" },
+        { "name": "id_parent_win", "type": "int", "default": 0 },
+        { "name": "type_state", "type": "int", "default": 0 }
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "type": "record",
+    "name": "RoleResponseMessage",
+    "namespace": "com.walrex.avro.schemas",
+    "fields": [
+        { "name": "no_rol", "type": "string" },
+        { "name": "details", "type": {
+                "type": "array",
+                "items": "com.walrex.avro.schemas.WinPermissionMessage"
+            }, "default": []
+        }
+    ]
+}

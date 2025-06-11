@@ -1,0 +1,11 @@
+{
+    "type": "record",
+    "name": "ItemLoteResponse",
+    "namespace": "com.walrex.avro.schemas",
+    "fields": [
+        { "name": "id_salida_lote", "type": "int" },
+        { "name": "id_lote", "type": "int" },
+        { "name": "id_unidad", "type": "int" },
+        { "name": "cantidad", "type": "float" }
+    ]
+}

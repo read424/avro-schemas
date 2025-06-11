@@ -1,0 +1,8 @@
+{
+    "type": "record",
+    "name": "RoleMessage",
+    "namespace": "com.walrex.avro.schemas",
+    "fields": [
+        { "name": "id_rol", "type": "long" }
+    ]
+}

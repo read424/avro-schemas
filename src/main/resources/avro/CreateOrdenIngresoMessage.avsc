@@ -1,0 +1,16 @@
+{
+   "type": "record",
+   "name": "CreateOrdeningresoMessage",
+   "namespace": "com.walrex.avro.schemas",
+   "fields":[
+        { "name": "id_motivo", "type": "int" },
+        { "name": "id_almacen", "type": "int" },
+        { "name": "fec_creacion", "type": "string" },
+        { "name": "observacion", "type": "string" },
+        { "name": "orderListItems", "type": {
+                "type": "array",
+                "items": "com.walrex.avro.schemas.ItemArticuloMessage"
+            }, "default": []
+        }
+   ]
+}

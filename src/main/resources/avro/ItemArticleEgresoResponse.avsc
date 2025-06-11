@@ -1,0 +1,16 @@
+{
+    "type": "record",
+    "name": "ItemArticleEgresoResponse",
+    "namespace": "com.walrex.avro.schemas",
+    "fields": [
+        { "name": "id_detalle_orden", "type": "int" }
+        , { "name": "id_articulo", "type": "int" }
+        , { "name": "id_unidad", "type": "int" }
+        , { "name": "cantidad", "type": "float" }
+        , { "name": "lotes", "type": {
+                "type": "array",
+                "items": "com.walrex.avro.schemas.ItemLoteResponse"
+            }
+        }
+    ]
+}

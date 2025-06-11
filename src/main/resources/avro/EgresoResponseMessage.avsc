@@ -1,0 +1,16 @@
+{
+    "type": "record",
+    "name": "EgresoResponseMessage",
+    "namespace": "com.walrex.avro.schemas",
+    "fields": [
+        { "name": "id_orden_salida", "type": "int" },
+        { "name": "num_saved", "type": "int" },
+        {
+            "name": "details",
+            "type": {
+                "type": "array",
+                "items": "com.walrex.avro.schemas.ItemArticleEgresoResponse"
+            }
+        }
+    ]
+}

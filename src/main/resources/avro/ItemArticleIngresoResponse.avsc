@@ -1,0 +1,14 @@
+{
+    "type": "record",
+    "name": "ItemArticleIngresoResponse",
+    "namespace": "com.walrex.avro.schemas",
+    "fields": [
+        { "name": "id_detordeningreso", "type": "int" },
+        { "name": "id_articulo", "type": "int" },
+        { "name": "id_lote", "type": "int" },
+        { "name": "id_unidad", "type": "int" },
+        { "name": "cantidad", "type": "float" },
+        { "name": "precio", "type": "float" },
+        { "name": "observacion", "type": "string" }
+    ]
+}

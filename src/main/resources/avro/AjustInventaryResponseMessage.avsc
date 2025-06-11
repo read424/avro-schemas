@@ -1,0 +1,12 @@
+{
+    "type": "record",
+    "name": "AjustInventaryResponseMessage",
+    "namespace": "com.walrex.avro.schemas",
+    "fields": [
+        { "name": "is_success", "type": ["boolean", "null"], "default": null },
+        { "name": "message", "type": "string" },
+        { "name": "transactionId", "type": "string" },
+        { "name": "ingreso", "type": "com.walrex.avro.schemas.IngresoResponseMessage" },
+        { "name": "engreso", "type": "com.walrex.avro.schemas.EgresoResponseMessage"  }
+    ]
+}

@@ -1,0 +1,24 @@
+{
+  "type": "record",
+  "name": "GuiaRemisionRemitenteMessage",
+  "namespace": "com.walrex.avro.schemas",
+  "fields": [
+    { "name": "id_comprobante", "type": "long" },
+    { "name": "tipo_comprobante", "type": "int" },
+    { "name": "tipo_serie", "type": "int" },
+    { "name": "num_comprobante", "type": "int" },
+    { "name": "id_cliente", "type": "int" },
+    { "name": "fecha_emision", "type": "string" },
+    { "name": "id_moneda", "type": "int" },
+    { "name": "id_motivo", "type": "int" },
+    { "name": "id_liquidacion", "type": "int" },
+    {
+      "name": "detailItems",
+      "type": {
+        "type": "array",
+        "items": "com.walrex.avro.schemas.ItemGuiaRemisionRemitenteMessage"
+      },
+      "default": []
+    }
+  ]
+}

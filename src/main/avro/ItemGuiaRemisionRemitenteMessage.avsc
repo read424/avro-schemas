@@ -1,0 +1,16 @@
+{
+  "type": "record",
+  "name": "ItemGuiaRemisionRemitenteMessage",
+  "namespace": "com.walrex.avro.schemas",
+  "fields": [
+    { "name": "id_producto", "type": "int" },
+    { "name": "id_ordensalida", "type": "int" },
+    { "name": "cantidad", "type": "float" },
+    { "name": "precio", "type": "float" },
+    { "name": "subtotal", "type": "float" },
+    { "name": "id_detalle_orden", "type": "int" },
+    { "name": "peso", "type": "float" },
+    { "name": "id_unidad", "type": "int", "default": 1 },
+    { "name": "tipo_servicio", "type": "int", "default": 1 }
+  ]
+}

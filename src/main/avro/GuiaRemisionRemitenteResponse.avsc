@@ -1,0 +1,28 @@
+{
+  "type": "record",
+  "name": "GuiaRemisionRemitenteResponse",
+  "namespace": "com.walrex.avro.schemas",
+  "fields": [
+    { "name": "success", "type": "boolean", "default": false },
+    { "name": "message", "type": "string" },
+    {
+      "name": "data",
+      "type": [
+        "null",
+        {
+          "type": "array",
+          "items": {
+            "type": "record",
+            "name": "GuiaRemisionRemitenteData",
+            "fields": [
+              { "name": "id_ordensalida", "type": "int" },
+              { "name": "id_comprobante", "type": "int" },
+              { "name": "codigo_comprobante", "type": "string" }
+            ]
+          }
+        }
+      ],
+      "default": null
+    }
+  ]
+}

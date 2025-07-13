@@ -1,0 +1,20 @@
+{
+  "type": "record",
+  "name": "CreateGuiaRemisionRemitenteMessage",
+  "namespace": "com.walrex.avro.schemas",
+  "fields": [
+    { "name": "id_cliente", "type": "int" },
+    { "name": "tipo_comprobante", "type": ["int", null] },
+    { "name": "tipo_serie", "type": ["int", null] },
+    { "name": "id_motivo", "type": "int" },
+    { "name": "fecha_emision", "type": "string" },
+    {
+      "name": "detailItems",
+      "type": {
+        "type": "array",
+        "items": "com.walrex.avro.schemas.ItemGuiaRemisionRemitenteMessage"
+      },
+      "default": []
+    }
+  ]
+}

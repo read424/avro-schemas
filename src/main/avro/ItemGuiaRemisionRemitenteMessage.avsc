@@ -2,15 +2,54 @@
   "type": "record",
   "name": "ItemGuiaRemisionRemitenteMessage",
   "namespace": "com.walrex.avro.schemas",
+  "doc": "Mensaje para items de guía de remisión remitente - Versión 1.0.0",
   "fields": [
-    { "name": "id_producto", "type": "int" },
-    { "name": "id_ordensalida", "type": "int" },
-    { "name": "cantidad", "type": "float" },
-    { "name": "precio", "type": "float" },
-    { "name": "subtotal", "type": "float" },
-    { "name": "id_detalle_orden", "type": "int" },
-    { "name": "peso", "type": "float" },
-    { "name": "id_unidad", "type": "int", "default": 1 },
-    { "name": "tipo_servicio", "type": "int", "default": 1 }
+    {
+      "name": "id_producto",
+      "type": "int",
+      "doc": "ID del producto"
+    },
+    {
+      "name": "id_ordensalida",
+      "type": "int",
+      "doc": "ID de la orden de salida"
+    },
+    {
+      "name": "cantidad",
+      "type": "float",
+      "doc": "Cantidad del item"
+    },
+    {
+      "name": "precio",
+      "type": "float",
+      "doc": "Precio unitario"
+    },
+    {
+      "name": "subtotal",
+      "type": "float",
+      "doc": "Subtotal del item"
+    },
+    {
+      "name": "id_detalle_orden",
+      "type": "int",
+      "doc": "ID del detalle de la orden"
+    },
+    {
+      "name": "peso",
+      "type": "float",
+      "doc": "Peso del item"
+    },
+    {
+      "name": "id_unidad",
+      "type": "int",
+      "default": 1,
+      "doc": "ID de la unidad de medida"
+    },
+    {
+      "name": "tipo_servicio",
+      "type": "int",
+      "default": 1,
+      "doc": "Tipo de servicio"
+    }
   ]
 }

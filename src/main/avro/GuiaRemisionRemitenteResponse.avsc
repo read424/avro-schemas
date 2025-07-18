@@ -12,6 +12,7 @@
         {
           "type": "record",
           "name": "GuiaRemisionRemitenteData",
+          "namespace": "com.walrex.avro.schemas",
           "fields": [
             { "name": "id_ordensalida", "type": "int" },
             { "name": "id_comprobante", "type": "int" },
